@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="linux,shell,dirname,basename," />
 
 
 
@@ -86,12 +86,16 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="ICERIOT">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="今天在查看一个脚本时发现了之前未遇到的命令”basename $0”。basename是打印长路径下文件名称，与之对应的还有dirname是打印文件所在路径。这两个命令还是非常有用的之前写shell脚本时是通过字符串截取的方式来获取文件及文件所在路径，现在则是更为方便。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux命令---basename,dirname">
+<meta property="og:url" content="http://yoursite.com/2017/02/07/basename-dirname/index.html">
 <meta property="og:site_name" content="ICERIOT">
+<meta property="og:description" content="今天在查看一个脚本时发现了之前未遇到的命令”basename $0”。basename是打印长路径下文件名称，与之对应的还有dirname是打印文件所在路径。这两个命令还是非常有用的之前写shell脚本时是通过字符串截取的方式来获取文件及文件所在路径，现在则是更为方便。">
+<meta property="og:updated_time" content="2017-02-07T03:50:37.905Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ICERIOT">
+<meta name="twitter:title" content="linux命令---basename,dirname">
+<meta name="twitter:description" content="今天在查看一个脚本时发现了之前未遇到的命令”basename $0”。basename是打印长路径下文件名称，与之对应的还有dirname是打印文件所在路径。这两个命令还是非常有用的之前写shell脚本时是通过字符串截取的方式来获取文件及文件所在路径，现在则是更为方便。">
 
 
 
@@ -119,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/02/07/basename-dirname/"/>
 
 
 
 
 
-  <title> ICERIOT </title>
+  <title> linux命令---basename,dirname | ICERIOT </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -146,9 +150,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -239,142 +241,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/07/linux-add-sys-service/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="iceriot">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="ICERIOT">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="ICERIOT" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/07/linux-add-sys-service/" itemprop="url">
-                  linux配置系统服务
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-07T13:11:09+08:00">
-                2017-02-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/02/07/linux-add-sys-service/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/07/linux-add-sys-service/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>linux下添加系统服务可以方便的起停应用，也可以快速设置开机自启动，<br>其基本步骤是<br>1.编写起停脚本service,放入/etc/init.d目录<br>2.chkconfig –add service添加系统服务<br>3.chkconfig sercice on/off设置开机自启<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/07/linux-add-sys-service/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
 
   
 
@@ -407,10 +276,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/02/07/basename-dirname/" itemprop="url">
-                  linux命令---basename,dirname
-                </a>
+                linux命令---basename,dirname
               
             
           </h1>
@@ -471,311 +337,78 @@
       
 
       
-        
-          <p>今天在查看一个脚本时发现了之前未遇到的命令”basename $0”。basename是打印长路径下文件名称，与之对应的还有dirname是打印文件所在路径。这两个命令还是非常有用的之前写shell脚本时是通过字符串截取的方式来获取文件及文件所在路径，现在则是更为方便。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/07/basename-dirname/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <p>今天在查看一个脚本时发现了之前未遇到的命令”basename $0”。basename是打印长路径下文件名称，与之对应的还有dirname是打印文件所在路径。这两个命令还是非常有用的之前写shell脚本时是通过字符串截取的方式来获取文件及文件所在路径，现在则是更为方便。<br><a id="more"></a></p>
+<h2 id="basename"><a href="#basename" class="headerlink" title="basename"></a>basename</h2><h3 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">--help：   显示帮助； </div><div class="line">--version：显示版本号。</div></pre></td></tr></table></figure>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]<span class="comment"># basename /etc/passwd</span></div><div class="line">passwd</div><div class="line">[root@localhost ~]<span class="comment"># basename /etc/init/rc.conf .conf</span></div><div class="line">rc</div><div class="line">[root@localhost ~]<span class="comment"># basename /etc/init/rc.conf/</span></div><div class="line">rc.conf</div><div class="line">[root@localhost ~]<span class="comment"># basename /etc/init/rc.conf//</span></div><div class="line">rc.conf</div><div class="line">[root@localhost ~]<span class="comment"># basename /etc/init//rc.conf</span></div><div class="line">rc.conf</div></pre></td></tr></table></figure>
+<p>basename 路径参数后可加过滤元素可去除文件后缀<br>路径最后一个/之后若无字符则忽略查看倒数第二个以此类推</p>
+<h2 id="dirname"><a href="#dirname" class="headerlink" title="dirname"></a>dirname</h2><h3 id="选项-1"><a href="#选项-1" class="headerlink" title="选项"></a>选项</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">--help：   显示帮助； </div><div class="line">--version：显示版本号。</div></pre></td></tr></table></figure>
+<h3 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]<span class="comment"># dirname /etc/passwd</span></div><div class="line">/etc</div><div class="line">[root@localhost ~]<span class="comment"># dirname /etc/test//</span></div><div class="line">/etc</div><div class="line">[root@localhost ~]<span class="comment"># dirname /etc//test</span></div><div class="line">/etc</div></pre></td></tr></table></figure>
       
     </div>
 
     <div>
       
+        
+
+      
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/19/mysql-install/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="iceriot">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="ICERIOT">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="ICERIOT" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/19/mysql-install/" itemprop="url">
-                  mysql安装
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-19T14:27:20+08:00">
-                2017-01-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/linux/" rel="tag"># linux</a>
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/01/19/mysql-install/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/19/mysql-install/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
+            <a href="/tags/shell/" rel="tag"># shell</a>
           
-
+            <a href="/tags/dirname/" rel="tag"># dirname</a>
           
-
+            <a href="/tags/basename/" rel="tag"># basename</a>
           
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>this is a test</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/01/19/mysql-install/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/19/mysql-install/" rel="next" title="mysql安装">
+                <i class="fa fa-chevron-left"></i> mysql安装
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
+          <span class="post-nav-divider"></span>
 
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/18/hello-world/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="iceriot">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="ICERIOT">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="ICERIOT" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/02/07/linux-add-sys-service/" rel="prev" title="linux配置系统服务">
+                linux配置系统服务 <i class="fa fa-chevron-right"></i>
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2017/01/18/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-18T15:59:31+08:00">
-                2017-01-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/01/18/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/18/hello-world/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/01/18/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
           
           </div>
@@ -783,6 +416,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/02/07/basename-dirname/"
+           data-title="linux命令---basename,dirname" data-url="http://yoursite.com/2017/02/07/basename-dirname/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -802,8 +443,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -881,6 +531,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#basename"><span class="nav-number">1.</span> <span class="nav-text">basename</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选项"><span class="nav-number">1.1.</span> <span class="nav-text">选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例"><span class="nav-number">1.2.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dirname"><span class="nav-number">2.</span> <span class="nav-text">dirname</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选项-1"><span class="nav-number">2.1.</span> <span class="nav-text">选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例-1"><span class="nav-number">2.2.</span> <span class="nav-text">示例</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
@@ -980,6 +646,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
