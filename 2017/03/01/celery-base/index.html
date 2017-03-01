@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="linux,service," />
+  <meta name="keywords" content="celery,flask,celery4.0.2," />
 
 
 
@@ -86,16 +86,16 @@
 
 
 
-<meta name="description" content="linux下添加系统服务可以方便的起停应用，也可以快速设置开机自启动，其基本步骤是1.编写起停脚本service,放入/etc/init.d目录2.chkconfig –add service添加系统服务3.chkconfig sercice on/off设置开机自启">
+<meta name="description" content="记录使用celery遇到的问题。基础环境:centos65,flask,celery4.0.2,redis3.2.6">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux配置系统服务">
-<meta property="og:url" content="http://yoursite.com/2017/02/07/linux-add-sys-service/index.html">
+<meta property="og:title" content="celery整理">
+<meta property="og:url" content="http://yoursite.com/2017/03/01/celery-base/index.html">
 <meta property="og:site_name" content="ICERIOT">
-<meta property="og:description" content="linux下添加系统服务可以方便的起停应用，也可以快速设置开机自启动，其基本步骤是1.编写起停脚本service,放入/etc/init.d目录2.chkconfig –add service添加系统服务3.chkconfig sercice on/off设置开机自启">
-<meta property="og:updated_time" content="2017-02-07T06:51:15.741Z">
+<meta property="og:description" content="记录使用celery遇到的问题。基础环境:centos65,flask,celery4.0.2,redis3.2.6">
+<meta property="og:updated_time" content="2017-03-01T06:00:25.779Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux配置系统服务">
-<meta name="twitter:description" content="linux下添加系统服务可以方便的起停应用，也可以快速设置开机自启动，其基本步骤是1.编写起停脚本service,放入/etc/init.d目录2.chkconfig –add service添加系统服务3.chkconfig sercice on/off设置开机自启">
+<meta name="twitter:title" content="celery整理">
+<meta name="twitter:description" content="记录使用celery遇到的问题。基础环境:centos65,flask,celery4.0.2,redis3.2.6">
 
 
 
@@ -123,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/02/07/linux-add-sys-service/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/01/celery-base/"/>
 
 
 
 
 
-  <title> linux配置系统服务 | ICERIOT </title>
+  <title> celery整理 | ICERIOT </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -252,7 +252,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/07/linux-add-sys-service/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/01/celery-base/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="iceriot">
@@ -276,7 +276,7 @@
             
             
               
-                linux配置系统服务
+                celery整理
               
             
           </h1>
@@ -291,8 +291,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-07T13:11:09+08:00">
-                2017-02-07
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-01T10:11:28+08:00">
+                2017-03-01
               </time>
             
 
@@ -310,8 +310,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/07/linux-add-sys-service/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/07/linux-add-sys-service/" itemprop="commentCount"></span>
+                <a href="/2017/03/01/celery-base/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/01/celery-base/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -337,15 +337,20 @@
       
 
       
-        <p>linux下添加系统服务可以方便的起停应用，也可以快速设置开机自启动，<br>其基本步骤是<br>1.编写起停脚本service,放入/etc/init.d目录<br>2.chkconfig –add service添加系统服务<br>3.chkconfig sercice on/off设置开机自启<br><a id="more"></a></p>
-<h3 id="编写服务脚本"><a href="#编写服务脚本" class="headerlink" title="编写服务脚本"></a>编写服务脚本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/sh  </span></div><div class="line"><span class="comment">#chkconfig: 2345 80 25   </span></div><div class="line"><span class="comment">#description: test service   </span></div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">start</span></span>()&#123;</div><div class="line">    <span class="built_in">echo</span> <span class="string">"service start"</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">stop</span></span>()&#123;</div><div class="line">    <span class="built_in">echo</span> <span class="string">"service stop"</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">restart</span></span>()&#123;</div><div class="line">    stop</div><div class="line">    start</div><div class="line">&#125;</div><div class="line"><span class="keyword">case</span> <span class="variable">$1</span> <span class="keyword">in</span>  </div><div class="line">start)  </div><div class="line">    start</div><div class="line">    ;;  </div><div class="line">stop)  </div><div class="line">    stop</div><div class="line">    ;;  </div><div class="line">restart)  </div><div class="line">    restart</div><div class="line">    ;;  </div><div class="line">*)  </div><div class="line">    <span class="built_in">echo</span> $<span class="string">"Usage: <span class="variable">$0</span> &#123;start|stop|restart&#125;"</span></div><div class="line">    ;;  </div><div class="line"><span class="keyword">esac</span></div></pre></td></tr></table></figure>
-<p>第二行chkconfig: 2345 80 25<br>其中2345指的是程序运行级别 80指的是启动优先权25指的是停止优先权，数字越小优先权越高.添加服务后会在/etc/rcNum.d中生成[S|K]NumService对应的软链接文件，其作用是调用对应脚本的start和stop。<br>第三行指的是服务简单描述</p>
-<h3 id="服务配置"><a href="#服务配置" class="headerlink" title="服务配置"></a>服务配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1.将script放入/etc/init.d</div><div class="line">2.为script添加可执行权限 chmod +x script </div><div class="line">3.添加服务chkconfig --add service</div><div class="line">4.设置开机启动 chkconfig service on</div><div class="line">5.service servicename start|stop|restart</div></pre></td></tr></table></figure>
-<h3 id="chkconfig详细用法"><a href="#chkconfig详细用法" class="headerlink" title="chkconfig详细用法"></a>chkconfig详细用法</h3><h4 id="添加-删除服务"><a href="#添加-删除服务" class="headerlink" title="添加/删除服务"></a>添加/删除服务</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chkconfig --add/del servicename</div></pre></td></tr></table></figure>
-<h4 id="配置开机启动"><a href="#配置开机启动" class="headerlink" title="配置开机启动"></a>配置开机启动</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chkconfig servicename on/off</div></pre></td></tr></table></figure>
-<h4 id="查看服务运行级别"><a href="#查看服务运行级别" class="headerlink" title="查看服务运行级别"></a>查看服务运行级别</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chkconfig --list servicename</div></pre></td></tr></table></figure>
-<h4 id="设置服务运行级别"><a href="#设置服务运行级别" class="headerlink" title="设置服务运行级别"></a>设置服务运行级别</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chkconfig --level 0|1|2|3|... servicename on|off|...</div></pre></td></tr></table></figure>
-
+        <p>记录使用celery遇到的问题。<br>基础环境:centos65,flask,celery4.0.2,redis3.2.6<br><a id="more"></a></p>
+<h3 id="celery序列化"><a href="#celery序列化" class="headerlink" title="celery序列化"></a>celery序列化</h3><h4 id="为什么需要序列化"><a href="#为什么需要序列化" class="headerlink" title="为什么需要序列化"></a>为什么需要序列化</h4><blockquote>
+<p>Data transferred between clients and workers needs to be serialized, so every message in Celery has a content_type header that describes the serialization method used to encode it.  </p>
+</blockquote>
+<p><a href="http://docs.celeryproject.org/en/latest/userguide/calling.html#serializers" target="_blank" rel="external">celery doc</a><br>客户端和服务端数据交换需要被序列化，所以celery中所有message都由content_type来决定使用哪一种序列化函数来编码。</p>
+<h4 id="有哪些序列化方式"><a href="#有哪些序列化方式" class="headerlink" title="有哪些序列化方式"></a>有哪些序列化方式</h4><ul>
+<li>pickle 几乎支持所有的python数据类型</li>
+<li>json  celery4.0.2 默认序列化方式</li>
+<li>yaml  See <a href="http://yaml.org/" target="_blank" rel="external">http://yaml.org/</a> for more information.</li>
+<li>msgpack See <a href="http://msgpack.org/" target="_blank" rel="external">http://msgpack.org/</a> for more information.</li>
+<li>自定义 需注册</li>
+</ul>
+<h4 id="如何配置序列化"><a href="#如何配置序列化" class="headerlink" title="如何配置序列化"></a>如何配置序列化</h4><h5 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h5><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#严格区分大小写，celery4.0.2版本配置和低版本的有些不同，不能混合使用</span></div><div class="line"><span class="comment">#注意accept_content必须是一个数组而不是字符串，否则会将字符串转换为数组</span></div><div class="line">accept_content=[<span class="string">'pickle'</span>,<span class="string">'json'</span>]</div><div class="line"><span class="comment">#如果你要使用pickle方式序列化则先要在accept_content添加</span></div><div class="line"><span class="comment">#Default: "json" (since 4.0, earlier: pickle).</span></div><div class="line">task_serializer=<span class="string">'pickle'</span></div><div class="line"><span class="comment">#Default: json since 4.0 (earlier: pickle).</span></div><div class="line">result_serializer=<span class="string">'json'</span></div></pre></td></tr></table></figure>
+<h5 id="局部配置"><a href="#局部配置" class="headerlink" title="局部配置"></a>局部配置</h5><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#如果你要使用pickle方式序列化则先要在accept_content添加</span></div><div class="line">task_example.apply_async(serializer=<span class="string">'pickle'</span>)</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -368,9 +373,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/linux/" rel="tag"># linux</a>
+            <a href="/tags/celery/" rel="tag"># celery</a>
           
-            <a href="/tags/service/" rel="tag"># service</a>
+            <a href="/tags/flask/" rel="tag"># flask</a>
+          
+            <a href="/tags/celery4-0-2/" rel="tag"># celery4.0.2</a>
           
         </div>
       
@@ -379,8 +386,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/07/basename-dirname/" rel="next" title="linux命令---basename,dirname">
-                <i class="fa fa-chevron-left"></i> linux命令---basename,dirname
+              <a href="/2017/02/27/flask-script/" rel="next" title="flask-script基础用法">
+                <i class="fa fa-chevron-left"></i> flask-script基础用法
               </a>
             
           </div>
@@ -388,10 +395,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/13/redis-install/" rel="prev" title="redis安装">
-                redis安装 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -417,8 +420,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/07/linux-add-sys-service/"
-           data-title="linux配置系统服务" data-url="http://yoursite.com/2017/02/07/linux-add-sys-service/">
+      <div class="ds-thread" data-thread-key="2017/03/01/celery-base/"
+           data-title="celery整理" data-url="http://yoursite.com/2017/03/01/celery-base/">
       </div>
     
   </div>
@@ -540,7 +543,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#编写服务脚本"><span class="nav-number">1.</span> <span class="nav-text">编写服务脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务配置"><span class="nav-number">2.</span> <span class="nav-text">服务配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chkconfig详细用法"><span class="nav-number">3.</span> <span class="nav-text">chkconfig详细用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加-删除服务"><span class="nav-number">3.1.</span> <span class="nav-text">添加/删除服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置开机启动"><span class="nav-number">3.2.</span> <span class="nav-text">配置开机启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看服务运行级别"><span class="nav-number">3.3.</span> <span class="nav-text">查看服务运行级别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置服务运行级别"><span class="nav-number">3.4.</span> <span class="nav-text">设置服务运行级别</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#celery序列化"><span class="nav-number">1.</span> <span class="nav-text">celery序列化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么需要序列化"><span class="nav-number">1.1.</span> <span class="nav-text">为什么需要序列化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有哪些序列化方式"><span class="nav-number">1.2.</span> <span class="nav-text">有哪些序列化方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何配置序列化"><span class="nav-number">1.3.</span> <span class="nav-text">如何配置序列化</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#全局配置"><span class="nav-number">1.3.1.</span> <span class="nav-text">全局配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#局部配置"><span class="nav-number">1.3.2.</span> <span class="nav-text">局部配置</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
