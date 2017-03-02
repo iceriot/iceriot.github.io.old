@@ -4,6 +4,27 @@
 
     
   <url>
+    <loc>http://yoursite.com/2017/03/02/uwsgi-deploy/</loc>
+    <lastmod>2017-03-02T09:31:42.812Z</lastmod>
+    <data>
+        <display>
+        <title>使用uwsgi部署flask</title>
+        <pubTime>2017-03-02T03:26:08.000Z</pubTime>
+        
+        <tag>flask</tag>
+         
+        <tag>uwsgi</tag>
+         
+        <tag>nginx</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2017/03/01/celery-base/</loc>
     <lastmod>2017-03-01T06:00:25.779Z</lastmod>
     <data>
