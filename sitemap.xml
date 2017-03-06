@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/03/06/shell-base/</loc>
+    
+    <lastmod>2017-03-06T08:09:20.018Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/03/02/uwsgi-deploy/</loc>
     
     <lastmod>2017-03-02T09:31:42.812Z</lastmod>
