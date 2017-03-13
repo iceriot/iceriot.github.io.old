@@ -4,6 +4,25 @@
 
     
   <url>
+    <loc>http://yoursite.com/2017/03/13/sed/</loc>
+    <lastmod>2017-03-13T10:25:50.611Z</lastmod>
+    <data>
+        <display>
+        <title>sed基础用法</title>
+        <pubTime>2017-03-13T07:45:56.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>sed</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2017/03/06/shell-base/</loc>
     <lastmod>2017-03-06T08:09:20.018Z</lastmod>
     <data>
@@ -51,9 +70,9 @@
         <title>celery整理</title>
         <pubTime>2017-03-01T02:11:28.000Z</pubTime>
         
-        <tag>flask</tag>
-         
         <tag>celery</tag>
+         
+        <tag>flask</tag>
          
         <tag>celery4.0.2</tag>
          
@@ -72,9 +91,9 @@
         <title>flask-script基础用法</title>
         <pubTime>2017-02-27T06:53:00.000Z</pubTime>
         
-        <tag>flask-script</tag>
-         
         <tag>flask</tag>
+         
+        <tag>flask-script</tag>
          
          
            
